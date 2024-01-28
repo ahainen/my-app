@@ -1,28 +1,18 @@
-import './App.css';
-import { Rive } from 'rive-react';
-
-function MyButton() {
-  return (
-    <button className='px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold'>I'm a button</button>
-  );
-}
+import { useRive } from "rive-react";
 
 function App() {
-  return (
-    <div className="App">
-      <div className='flex'>
-        <MyButton />
-        <MyButton />
-        <MyButton />
-      </div>
-      <div>
-          
-            <Rive src="switch.riv" />
-            
-      </div>
+  const { rive, RiveComponent } = useRive({
+      src:"switch.riv",
+      stateMachines:"state-machine",
+      autoplay:true,
+  });
 
 
-    </div>
+
+  return ( 
+  <div className="h-screen">
+    <RiveComponent />
+  </div>
   );
 }
 
